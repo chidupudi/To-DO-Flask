@@ -20,7 +20,7 @@ def index():
 def add_task():
     title = request.form.get('title')
     if title:
-        tasks_collection.insert_one({"title": title, "done": False})
+        tasks_collection.insert_one({"title": title, "done":  False})
     return redirect(url_for('index'))
 
 @app.route('/toggle/<task_id>')
