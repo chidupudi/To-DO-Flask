@@ -3,14 +3,11 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
 app = Flask(__name__)
-
 # MongoDB configuration
 app.config["MONGO_URI"] = "mongodb://localhost:27017/todo_db"
 mongo = PyMongo(app)
-
 # Get the tasks collection
 tasks_collection = mongo.db.tasks
-
 @app.route('/')
 def index():
     tasks = tasks_collection.find()
